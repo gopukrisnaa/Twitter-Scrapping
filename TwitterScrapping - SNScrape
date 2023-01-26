@@ -1,0 +1,20 @@
+#Installing snscrape 
+pip install git+https://github.com/JustAnotherArchivist/snscrape.git
+pip install snscrape
+!pip install snscrape==0.4.3.20220106
+
+import snscrape.modules.twitter as sntwitter
+import pandas as pd
+
+# Created a list to append all tweet attributes(data)
+attributes_container = []
+
+# Using TwitterSearchScraper to scrape data and append tweets to list (USed "Times of India" twitter page
+
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:timesofindia').get_items()):
+    if i>100:
+        break
+    attributes_container.append([tweet.date, tweet.likeCount, tweet.sourceLabel,tweet.likeCount, tweet.content, tweet.url, tweet.user, tweet.lang])
+    
+# Creating a dataframe from the tweets list above 
+tweets_df = pd.DataFrame(attributes_container, columns=["Date Created", "No of Likes", "Source", "Likes", "Content", "URL","User", "Language"])
