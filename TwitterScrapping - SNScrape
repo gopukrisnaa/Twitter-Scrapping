@@ -6,10 +6,10 @@ pip install snscrape
 import snscrape.modules.twitter as sntwitter
 import pandas as pd
 
-# Created a list to append all tweet attributes(data)
+# Created a list to attach all tweet attributes(data)
 attributes_container = []
 
-# Using TwitterSearchScraper to scrape data and append tweets to list (USed "Times of India" twitter page
+# Using TwitterSearchScraper to scrape data and append tweets to list (Used "Times of India" twitter page)
 
 for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:timesofindia').get_items()):
     if i>100:
@@ -18,3 +18,100 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('from:timesofindia').get
     
 # Creating a dataframe from the tweets list above 
 tweets_df = pd.DataFrame(attributes_container, columns=["Date Created", "No of Likes", "Source", "Likes", "Content", "URL","User", "Language"])
+
+#Took recent 30 tweets from twitter page
+tweets_df.head(30)
+
+#dataframe created
+	Date Created	No of Likes	Source	Likes	Content	URL	User	Language
+0	2023-01-26 06:19:26+00:00	3	Twitter Web App	3	The tableau of Maharashtra, with theme 'Sade t...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	et
+1	2023-01-26 06:17:21+00:00	6	Twitter Web App	6	The tableau of West Bengal, with theme 'Durga-...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	en
+2	2023-01-26 06:16:44+00:00	4	Twitter Web App	4	#Haryana's tableau reflects design based on Bh...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	en
+3	2023-01-26 06:14:49+00:00	14	Twitter Web App	14	The tableau of Kerala, with theme 'Naari Shakt...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	en
+4	2023-01-26 06:12:25+00:00	6	Twitter Web App	6	#Karnataka's tableau symbolically unveils exce...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	en
+5	2023-01-26 06:11:13+00:00	12	Twitter Web App	12	The tableau of Jammu-Kashmir, with theme 'Naya...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	en
+6	2023-01-26 06:10:57+00:00	8	Twitter Web App	8	'#NariShakti' depicted in Central Armed Police...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	en
+7	2023-01-26 06:09:31+00:00	15	Twitter Web App	15	The tableau of Arunachal Pradesh on #KartavyaP...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	en
+8	2023-01-26 06:07:31+00:00	8	Twitter Web App	8	The tableau of Jharkhand, with theme 'Baba Bai...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	en
+9	2023-01-26 06:07:03+00:00	8	Twitter Web App	8	Uttar Pradesh's tableau at the Republic Day pa...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	en
+10	2023-01-26 06:06:08+00:00	6	Twitter Web App	6	The tableau of Gujarat on #KartavyaPath, theme...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	en
+11	2023-01-26 06:04:48+00:00	4	Twitter Web App	4	The colourful tableaux of West Bengal, Maharas...	https://twitter.com/timesofindia/status/161849...	https://twitter.com/timesofindia	en
+12	2023-01-26 06:03:37+00:00	13	Twitter Web App	13	The tableau of Tripura on #KartavyaPath\n\n#Re...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+13	2023-01-26 06:03:21+00:00	6	Twitter Web App	6	#Kerala presents the tableau of 'Nari Shakti' ...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+14	2023-01-26 06:01:04+00:00	3	Twitter Web App	3	The tableau of Jammu &amp; Kashmir with its th...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+15	2023-01-26 05:59:46+00:00	10	Twitter Web App	10	Uttarakhand tableau on #KartavyaPath, showing ...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+16	2023-01-26 05:58:16+00:00	7	Twitter Web App	7	The tableau of #Jharkhand shows the famous Bai...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+17	2023-01-26 05:57:07+00:00	13	Twitter Web App	13	Laddakh tableau showcasing the region's touris...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+18	2023-01-26 05:56:46+00:00	5	Twitter Web App	5	#ArunachalPradesh, known as the land for the r...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+19	2023-01-26 05:55:33+00:00	4	Twitter Web App	4	#Tripura's tableau with the theme 'Sustainable...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+20	2023-01-26 05:54:58+00:00	13	Twitter Web App	13	The tableau of Assam on #KartavyaPath\n\n#Repu...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+21	2023-01-26 05:53:52+00:00	2	Twitter Web App	2	#Gujarat's tableau shows the renewable sources...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+22	2023-01-26 05:53:00+00:00	25	Twitter Web App	25	Andhra Pradesh tableau displaying the farmers'...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+23	2023-01-26 05:52:01+00:00	5	Twitter Web App	5	Based on the theme 'Tourism and composite cult...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+24	2023-01-26 05:51:56+00:00	9	Twitter Web App	9	NCC combined band marching on #KartavyaPath \n...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+25	2023-01-26 05:50:28+00:00	5	Twitter Web App	5	Uttarakhand's tableau depicts the Corbett Nati...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+26	2023-01-26 05:48:36+00:00	4	Twitter Web App	4	'Conditions in Telangana stressful', says Gove...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+27	2023-01-26 05:47:01+00:00	8	Twitter Web App	8	Assam's tableau shows Ahom warrior Lachit Borp...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+28	2023-01-26 05:46:25+00:00	18	Twitter Web App	18	Here's the Naval marching contingent on #Karta...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+29	2023-01-26 05:45:59+00:00	47	Twitter Web App	47	The tableau of #AndhraPradesh depicts 'Prabhal...	https://twitter.com/timesofindia/status/161848...	https://twitter.com/timesofindia	en
+
+#creating df to export to MongoDB
+df = pd.DataFrame(tweets_df)
+print(df)
+
+#converting to CSV file
+df.to_csv('tweets_df.csv')
+
+# Importing moongo client   
+import pandas as pd
+from pymongo import MongoClient
+
+#Connecting through localhost
+client = MongoClient("mongodb://localhost:27018/")
+# database
+db = client["tweets_df"]
+# collection
+company= db["tweets"]
+
+#Code to import in Mongo DB
+import pandas as pd
+from pymongo import MongoClient
+# Load csv dataset
+data = pd.read_csv('tweets_df.csv')
+# Connect to MongoDB
+client =  MongoClient("mongodb+srv://GopuR:Gopumongo05$@clustertest.v4zswnz.mongodb.net/?retryWrites=true&w=majority")
+db = client['TwitterScrapping']
+collection = db['tweets']
+
+data_dict = data.to_dict("records")
+# Insert collection
+collection.insert_many(data_dict)
+
+#output in MongoDB Atlas
+_id: ObjectId
+('63d1759fc35a220c50084a52')
+Unnamed: 0
+0
+Date Created
+"2023-01-25 16:38:10+00:00"
+No of Likes
+9
+Source
+"Twitter Web App"
+Likes
+9
+Content
+"France studying whether to send Leclerc tanks to Ukraine https://t.co/…"
+URL
+"https://twitter.com/timesofindia/status/1618287122573852673"
+User
+"https://twitter.com/timesofindia"
+Language
+"en"
+
+#Importing Streamlit
+!pip install -q streamlit
+
+
+
+
